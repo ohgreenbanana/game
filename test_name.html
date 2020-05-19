@@ -17,24 +17,32 @@ window.processInputElements = function () {
         var varName = $(this).attr('data-varname');
         Harlowe.State.variables[varName] = this.value;
     });
-};</script><tw-passagedata pid="1" name="Создание персонажа" tags="" position="11,148.5" size="100,100">&lt;h5 align=&quot;center&quot;&gt;Средний Город. Площадь.&lt;/h5&gt;
+};</script><tw-passagedata pid="1" name="Пролог (1/3)" tags="" position="120,14" size="100,100">ПРОЛОГ (1/3)
 ---
-&lt;h8&gt;Недавно прибывший субъект обнаружил себя на городской площади. Вероятно, он какое-то время бродил в полусне, потому и не заметил, как лабиринты незнакомых улиц привели его сюда. Был уже поздний вечер. Фонари не горели. Густой туман висел над площадью и растекался по переулкам.
+Недавно прибывший субъект обнаружил себя на городской площади. Вероятно, он какое-то время бродил в полусне, потому и не заметил, как лабиринты незнакомых улиц привели его сюда. Был уже поздний вечер. Фонари не горели. Густой туман висел над площадью и растекался по переулкам...
 
-Неизвестно, был ли для субъекта в этом городе приготовлен ночлег. А если все же и был, то адреса субъект не знал. Единственное, в чем субъект был твердо убежден - он прибыл в город, чтобы найти какого-то *Волчка*.
+*Выберите пол:*
+(dropdown: bind $gender, &quot;Женщина&quot;, &quot;Мужчина&quot;)
+(link-goto: &quot;Принять&quot;, &quot;Пролог (2/3)&quot;)</tw-passagedata><tw-passagedata pid="2" name="Пролог (3/3)" tags="" position="331,19" size="100,100">ПРОЛОГ (3/3)
+---
+{(if: $name is 0)[(set: $name to &quot;Н.&quot;)]
+(if: $gender is &quot;Мужчина&quot;)[&lt;div&gt;Итак, его звали $name. &quot;Уже кое-что&quot;.&lt;/div&gt; Он взглянул на свою одежду и обследовал карманы, чтобы узнать что-нибудь еще о своей прежней жизни.](if: $gender is &quot;Женщина&quot;)[&lt;div&gt;Итак, ее звали $name. &quot;Уже кое-что&quot;.&lt;/div&gt; Она взглянула на свою одежду и обследовала карманы, чтобы узнать что-нибудь еще о своей прежней жизни.]}
 
-Во всем остальном уверенности не было. В сущности, субъект с трудом вспомнил собственное имя...&lt;/h8&gt;
+[[Да]]</tw-passagedata><tw-passagedata pid="3" name="Да" tags="" position="142,144" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Меню" tags="" position="8,11" size="100,100">&lt;h2 align=&quot;center&quot;&gt;ВОЛЧОК&lt;/h2&gt;
+
+&lt;h4 align=&quot;center&quot;&gt;[[НОВАЯ ИГРА-&gt;Пролог (1/3)]]&lt;/h5&gt;
+&lt;h4 align=&quot;center&quot;&gt;ПРОДОЛЖИТЬ ИГРУ&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="5" name="Пролог (2/3)" tags="" position="224,16" size="100,100">ПРОЛОГ (2/3)
+---
+{(if: $gender is &quot;Мужчина&quot;)[&lt;div&gt;*Субъект был мужчиной.*&lt;/div&gt;
+&lt;div&gt;&lt;div&gt;Неизвестно, был ли для него в этом городе приготовлен ночлег. А если все же и был, то адреса он не знал. Единственное, в чем он *почему-то* был твердо убежден, - он прибыл в город, чтобы найти какого-то *Волчка*.&lt;/div&gt;&lt;/div&gt;
+Во всем остальном уверенности не было. В сущности, он с трудом вспомнил собственное имя...](if: $gender is &quot;Женщина&quot;)[&lt;div&gt;*Субъект был женщиной.*&lt;/div&gt;
+&lt;div&gt;&lt;div&gt;Неизвестно, был ли для нее в этом городе приготовлен ночлег. А если все же и был, то адреса она не знала. Единственное, в чем она *почему-то* была твердо убеждена, - она прибыла в город, чтобы найти какого-то *Волчка*.&lt;/div&gt;&lt;/div&gt;
+Во всем остальном уверенности не было. В сущности, она с трудом вспомнила собственное имя...]}
 
 *Введите имя:*
 &lt;input type=&quot;text&quot; data-varname=&quot;name&quot;&gt;\
 &lt;script&gt;processInputElements();&lt;/script&gt;
-(link-goto: &quot;Принять&quot;, &quot;aName&quot;)</tw-passagedata><tw-passagedata pid="2" name="aName" tags="" position="142,22.5" size="100,100">(if: $name is 0)[(set: $name to &quot;Н.&quot;)]
-You mean to tell me that you are *the* $name?!
-
-[[Да]]</tw-passagedata><tw-passagedata pid="3" name="Да" tags="" position="142,144.5" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Меню" tags="" position="8,11.5" size="100,100">&lt;h3 align=&quot;center&quot;&gt;ВОЛЧОК&lt;/h3&gt;
-
-&lt;h5 align=&quot;center&quot;&gt;[[НОВАЯ ИГРА-&gt;Создание персонажа]]&lt;/h5&gt;
-&lt;h5 align=&quot;center&quot;&gt;ПРОДОЛЖИТЬ ИГРУ&lt;/h5&gt;</tw-passagedata></tw-storydata>
+(link-goto: &quot;Принять&quot;, &quot;Пролог (3/3)&quot;)</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
