@@ -11,7 +11,15 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="test_name" startnode="4" creator="Twine" creator-version="2.3.5" ifid="CF4D0EC9-07C9-408D-A027-F74C6CA66BA7" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript">window.Harlowe = { 'State' : State };
+<tw-storydata name="test_name" startnode="4" creator="Twine" creator-version="2.3.5" ifid="CF4D0EC9-07C9-408D-A027-F74C6CA66BA7" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.stats {text-align: center;
+  overflow: hidden;
+  background-color: #000000;
+  position: fixed;
+  top: 0; 
+  width: 100%;
+  float: center; left: 0%; display:block;
+}
+tw-sidebar{display:none}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.Harlowe = { 'State' : State };
 window.processInputElements = function () {
     $('input[data-varname]').on('change', function () {
         var varName = $(this).attr('data-varname');
@@ -23,19 +31,22 @@ window.processInputElements = function () {
 
 *Выберите пол:*
 (dropdown: bind $gender, &quot;Женщина&quot;, &quot;Мужчина&quot;)
-(link-goto: &quot;Принять&quot;, &quot;Пролог (2/3)&quot;)</tw-passagedata><tw-passagedata pid="2" name="Пролог (3/3)" tags="" position="331,19" size="100,100">ПРОЛОГ (3/3)
+(link-goto: &quot;Принять&quot;, &quot;Пролог (2/3)&quot;)</tw-passagedata><tw-passagedata pid="2" name="Пролог (3/3)" tags="" position="330,18" size="100,100">ПРОЛОГ (3/3)
 ---
 {(if: $name is 0)[(set: $name to &quot;Н.&quot;)]
-(if: $gender is &quot;Мужчина&quot;)[&lt;div&gt;Итак, его звали $name. &quot;Уже кое-что&quot;.&lt;/div&gt; Он взглянул на свою одежду и обследовал карманы, чтобы узнать что-нибудь еще о своей прежней жизни.](if: $gender is &quot;Женщина&quot;)[&lt;div&gt;Итак, ее звали $name. &quot;Уже кое-что&quot;.&lt;/div&gt; Она взглянула на свою одежду и обследовала карманы, чтобы узнать что-нибудь еще о своей прежней жизни.]}
+(if: $gender is &quot;Мужчина&quot;)[&lt;div&gt;*Итак, его звали $name.* &quot;Уже кое-что&quot;.&lt;/div&gt; Он взглянул на свою одежду и обследовал карманы, чтобы узнать что-нибудь еще о своей прежней жизни.](if: $gender is &quot;Женщина&quot;)[&lt;div&gt;*Итак, ее звали $name.* &quot;Уже кое-что&quot;.&lt;/div&gt; Она взглянула на свою одежду и обследовала карманы, чтобы узнать что-нибудь еще о своей прежней жизни.]}
 
-[[Да]]</tw-passagedata><tw-passagedata pid="3" name="Да" tags="" position="142,144" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Меню" tags="" position="8,11" size="100,100">&lt;h2 align=&quot;center&quot;&gt;ВОЛЧОК&lt;/h2&gt;
+*Выберите судьбу и врожденные способности героя:*
+{(if: $gender is &quot;Мужчина&quot;)[(dropdown: bind $class, &quot;Частный детектив&quot;, &quot;Гангстер&quot;, &quot;Аристократ&quot;, &quot;Проходимец&quot;, &quot;Лиценциат&quot;, &quot;Оккультист&quot;, &quot;Городской сумасшедший&quot;)](if: $gender is &quot;Женщина&quot;)[(dropdown: bind $class, &quot;Частный детектив&quot;, &quot;Дебоширка&quot;, &quot;Аристократка&quot;, &quot;Интригантка&quot;, &quot;Лиценциатка&quot;, &quot;Оккультистка&quot;, &quot;Городская сумасшедшая&quot;)]}
+{(live: 1)[(if: $class is &quot;Частный детектив&quot;)[(print: &quot;(сила++, интуиция+, интеллект, внешность-)&quot;)](if: $class is &quot;Гангстер&quot; or &quot;Дебоширка&quot;)[(print: &quot;(сила++, внешность+, интуиция, интеллект-)&quot;)](if: $class is &quot;Аристократ&quot; or &quot;Аристократка&quot;)[(print: &quot;(внешность++, интеллект+, интуиция, сила-)&quot;)](if: $class is &quot;Проходимец&quot; or &quot;Интригантка&quot;)[(print: &quot;(внешность++, сила+, интуиция, интеллект-)&quot;)](if: $class is &quot;Лиценциат&quot; or &quot;Лиценциатка&quot;)[(print: &quot;(интеллект++, внешность+, интуиция, сила-)&quot;)](if: $class is &quot;Оккультист&quot; or &quot;Оккультистка&quot;)[(print: &quot;(интеллект++, интуиция+, сила, внешность-)&quot;)](if: $class is &quot;Городской сумасшедший&quot; or &quot;Городская сумасшедшая&quot;)[(print: &quot;(интуиция++, сила+, интеллект, внешность-)&quot;)]]}
+(link-goto: &quot;Принять&quot;, &quot;Пролог (2/4)&quot;)</tw-passagedata><tw-passagedata pid="3" name="Да" tags="" position="142,144" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Меню" tags="" position="8,11" size="100,100">&lt;h2 align=&quot;center&quot;&gt;ВОЛЧОК&lt;/h2&gt;
 
 &lt;h4 align=&quot;center&quot;&gt;[[НОВАЯ ИГРА-&gt;Пролог (1/3)]]&lt;/h5&gt;
 &lt;h4 align=&quot;center&quot;&gt;ПРОДОЛЖИТЬ ИГРУ&lt;/h5&gt;</tw-passagedata><tw-passagedata pid="5" name="Пролог (2/3)" tags="" position="224,16" size="100,100">ПРОЛОГ (2/3)
 ---
-{(if: $gender is &quot;Мужчина&quot;)[&lt;div&gt;*Субъект был мужчиной.*&lt;/div&gt;
+{(if: $gender is &quot;Мужчина&quot;)[&lt;div&gt;*Субъект оказался мужчиной.*&lt;/div&gt;
 &lt;div&gt;&lt;div&gt;Неизвестно, был ли для него в этом городе приготовлен ночлег. А если все же и был, то адреса он не знал. Единственное, в чем он *почему-то* был твердо убежден, - он прибыл в город, чтобы найти какого-то *Волчка*.&lt;/div&gt;&lt;/div&gt;
-Во всем остальном уверенности не было. В сущности, он с трудом вспомнил собственное имя...](if: $gender is &quot;Женщина&quot;)[&lt;div&gt;*Субъект был женщиной.*&lt;/div&gt;
+Во всем остальном уверенности не было. В сущности, он с трудом вспомнил собственное имя...](if: $gender is &quot;Женщина&quot;)[&lt;div&gt;*Субъект оказался женщиной.*&lt;/div&gt;
 &lt;div&gt;&lt;div&gt;Неизвестно, был ли для нее в этом городе приготовлен ночлег. А если все же и был, то адреса она не знала. Единственное, в чем она *почему-то* была твердо убеждена, - она прибыла в город, чтобы найти какого-то *Волчка*.&lt;/div&gt;&lt;/div&gt;
 Во всем остальном уверенности не было. В сущности, она с трудом вспомнила собственное имя...]}
 
